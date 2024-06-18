@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редагувати заклад</title>
+</head>
+<body>
+    <h1>Редагувати дитячий заклад</h1>
+    <form method="POST" action="{{ url_for('edit_center_route', id=center_id) }}">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+            {% for error in form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(size=32) }}<br>
+            {% for error in form.address.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.monthly_fee.label }}<br>
+            {{ form.monthly_fee(size=32) }}<br>
+            {% for error in form.monthly_fee.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.capacity.label }}<br>
+            {{ form.capacity(size=32) }}<br>
+            {% for error in form.capacity.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p><input type="submit" value="Оновити"></p>
+    </form>
+</body>
+</html>

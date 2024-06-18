@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дитячі заклади</title>
+</head>
+<body>
+    <h1>Список дитячих закладів</h1>
+    <a href="/add">Додати новий заклад</a>
+    <a href="/search">Пошук закладів</a>
+    <a href="/visualization">Візуалізація даних</a>
+    <ul>
+        {% for center in centers %}
+            <li>
+                {{ center[1] }} - {{ center[2] }} - {{ center[3] }} грн/місяць - Вмістимість: {{ center[4] }}
+                <a href="{{ url_for('edit_center_route', id=center[0]) }}">Редагувати</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
